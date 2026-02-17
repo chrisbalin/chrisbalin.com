@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Chris Balin — product design lead' } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>CB</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-bg text-text font-body leading-[1.7] antialiased">
+    <div class="max-w-[660px] mx-auto px-6 py-16 sm:py-24">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
